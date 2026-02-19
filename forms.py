@@ -1,4 +1,5 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
+## adding captcha
 from wtforms import StringField, SubmitField, FileField
 from wtforms.validators import DataRequired, Length, Optional
 from flask_wtf.file import FileAllowed
@@ -19,6 +20,7 @@ class TodoForm(FlaskForm):
         ],
         render_kw={"class": "form-control"}
     )
+    recaptcha = RecaptchaField()
 
     submit = SubmitField(
         "Submit",
